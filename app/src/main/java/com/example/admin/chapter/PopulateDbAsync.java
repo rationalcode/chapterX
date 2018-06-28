@@ -2,6 +2,9 @@ package com.example.admin.chapter;
 
 import android.os.AsyncTask;
 
+import java.util.ArrayList;
+import java.util.List;
+
 class PopulateDbAsync extends AsyncTask<Void, Void, Void> {
 
     private final ChapterDAO chapterDAO;
@@ -13,12 +16,18 @@ class PopulateDbAsync extends AsyncTask<Void, Void, Void> {
     @Override
     protected Void doInBackground(final Void... params) {
 
+        List<Chapter> chapters = new ArrayList<>();
         //chapterDAO.deleteAll();
-        Chapter chapter = new Chapter("chapter 1","Hello");
-        chapterDAO.insert(chapter);
+        for (int i = 0; i <10 ; i++) {
 
-        chapter = new Chapter("chapter 2","History");
-        chapterDAO.insert(chapter);
+            Chapter chapter = new Chapter("chapter "+i,"Hello");
+            chapters.add(chapter);
+
+        }
+
+        chapterDAO.insertAll(chapters);
+
+
         return null;
     }
 }

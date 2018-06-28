@@ -24,7 +24,9 @@ public abstract class AppDatabase extends RoomDatabase{
             synchronized (AppDatabase.class) {
                 if (INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                            AppDatabase.class, "chapters").addCallback(sRoomDatabaseCallback)
+                            AppDatabase.class, "chapters")
+                            .addCallback(sRoomDatabaseCallback)
+                            .allowMainThreadQueries()
                             .build();
 
                     Toast.makeText(context,"create db",Toast.LENGTH_LONG).show();

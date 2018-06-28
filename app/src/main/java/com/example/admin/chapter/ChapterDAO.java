@@ -18,7 +18,7 @@ public interface ChapterDAO {
     void insert(Chapter chapters);
 
     @Insert
-    void insertAll(Chapter... chapters);
+    void insertAll(List<Chapter> chapters);
 
     @Delete
     void delete(Chapter chapters);

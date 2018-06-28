@@ -36,8 +36,8 @@ public class ChapterListAdapter extends RecyclerView.Adapter<ChapterListAdapter.
         if (chapterList != null) {
             Chapter current = chapterList.get(position);
 //            holder.chapterItemView.setText(current.id);
-           holder.chapterItemView.setText(current.title);
-           holder.chapterItemView.setText(current.notion);
+           holder.chapterItemView.setText(current.getTitle());
+           //holder.chapterItemView.setText(current.notion);
         } else {
             // Covers the case of data not being ready yet.
             holder.chapterItemView.setText("No Word");
